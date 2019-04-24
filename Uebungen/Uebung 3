@@ -1,0 +1,41 @@
+14)
+  a)
+    false, da Praedikate verschieden
+  b)
+    false, da Stelligkeiten verschieden
+  c)
+    false, X kann nur durch eine Konstante substituiert werden X/(a!=b)
+  d)
+    true, sub = [X/a, Z/b, Y/a]
+  e)
+    true, sub = [X/a, Y/b]
+
+
+15)
+  a)
+    t1b = f(f(g(a), g(f(g(a), b), f(g(a), g(f(g(a), a))))))
+          f(f( X , g(    Y    )), f( X , g(f( X  , a))))
+    t1 = f(f(X,g(Y)),f(X,g(f(X,a))))
+    sub1 = [X/g(a),Y/f(g(a),b)]
+
+    t2b = f(g(f(g(a), b), g(a)))
+          f(g(     X   ),  Y   )
+    t2 = f(g(X), Y)
+    sub2 = [X/f(g(a),b),Y/g(a)]
+  b)
+    sub1 = [X/g(Z1),Y/f(g(Z2),b)]
+    sub2 = [Z1/f(Z4,Z3),Z2/f(Z3,Z4)]
+    sub3 = [Z3/f(a,b),Z4/g(Z5)]
+
+    sub1sub2 = [X/g(f(Z4, Z3)), Y/f(g(f(Z3, Z4)), b)]
+    sub1sub3 = [???]
+    sub2sub3 = [Z1/f(g(Z5), f(a, b)), Z2/f(f(a, b), g(z5))]
+    sub1sub2sub3 = [X/g(f(g(Z5), f(a, b))), Y/f(g(f(f(a, b), g(5))), b)]
+
+16)
+  a)
+    Tiefensuche mit Backtracking
+    1 6 9 4 12 14 3 2 9 8 11 5 7 8 9 4 10
+  b)
+    Breitensuche
+    1 6 3 5 9 4 2 7 8 10 12 9 8 11 9 4 14

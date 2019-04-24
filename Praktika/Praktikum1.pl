@@ -11,7 +11,7 @@ female(brigitte).
 male(thomas).
 male(gerd).
 male(gerdJr).
-male(bernd)
+male(bernd).
 male(klaus).
 male(berndJr).
 

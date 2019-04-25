@@ -28,9 +28,9 @@
     sub3 = [Z3/f(a,b),Z4/g(Z5)]
 
     sub1sub2 = [X/g(f(Z4, Z3)), Y/f(g(f(Z3, Z4)), b)]
-    sub1sub3 = [???]
+    sub1sub3 = [X/g(Z1), Y/f(g(Z2),b), Z3/f(a,b),Z4/g(Z5)]
     sub2sub3 = [Z1/f(g(Z5), f(a, b)), Z2/f(f(a, b), g(z5))]
-    sub1sub2sub3 = [X/g(f(g(Z5), f(a, b))), Y/f(g(f(f(a, b), g(5))), b)]
+    sub1sub2sub3 = [X/g(f(g(Z5), f(a, b))), Y/f(g(f(f(a, b), g(Z5))), b)]
 
 16)
   a)

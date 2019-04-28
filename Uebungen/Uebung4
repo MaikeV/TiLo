@@ -1,0 +1,41 @@
+Uebung 4
+
+19)
+  a)
+    vater(abraham,isaak). männlich(abraham).
+    vater(haran,lot). männlich(isaak).
+    männlich(haran).
+    vater(gott,X). männlich(lot).
+    mutter(sarah,isaak). weiblich(sarah).
+
+    R1: sohn(X,Y) :- vater(Y,X), männlich(X).
+    R2: sohn(X,Y) :- mutter(Y,X), männlich(X).
+    R3: tochter(X,Y) :- vater(Y,X), weiblich(X).
+
+    i) ?- sohn(lot,Z), weiblich(Z).
+        mgu = [X/lot, Z/Y]  // evt. hier schon false, da sohn != weiblich
+       R1) ?- vater(Z, lot), maennlich(lot), weiblich(Z).
+       R2) ?- mutter(Z, lot), maennlich(lot), weiblich(Z).
+
+    ii) ?- vater(Z,lot), weiblich(Z).
+       mgu = [Z/haran] // false haran nicht als weiblich definiert!
+
+    iii) ?- mutter(Z,isaak), weiblich(Z).
+       mgu = [Z/sarah] // true
+       ?- .    out = [true]
+
+  b)
+    ?- mult(s(o),s(s(o)),Z).
+     mgu = [X/o, Y/s(s(o)), R/Z, R1/Z1]
+     ?- mult(o, s(s(o)), Z1), add(Z1, s(s(o), Z).
+     mgu = [Z1/o, Z/s(s(o))]
+     ?- .    out = [Z/s(s(o))]
+
+
+20)
+  a)
+    anz(Xs, N) :- add()
+
+
+22)
+  sub = []

@@ -38,4 +38,23 @@ Uebung 4
 
 
 22)
-  sub = []
+  a)
+    f(f(X       ,f(a,g(X))),g(f(b ,Y     )))
+    f(f(g(g(Z1)),Z2       ),g(f(Z3,f(Z3,a))))
+    sub = [X/g(g(Z1)), Z2/f(a, g(g(g(Z1)))), Z3/b, Y/f(b, a)]
+
+  b)
+    f(f(X       ,f(a,g(X))),g(f(b ,X     )))
+    f(f(g(g(Z1)),Z2       ),g(f(Z3,f(Z3,a))))
+    sub = [X/g(g(Z1)), Z2/f(a, g(g(g(Z1)))), Z3/b, !!!]
+
+  c)
+    f(X,g(X))
+    f(Z,Z)
+    sub = [Z/X, !!!]
+
+23)
+    app(nil,Xs,Xs).
+    app(list(X,X1s),Ys,list(X,X2s)) :- app(X1s,Ys,X2s).
+
+    ?- 

@@ -13,23 +13,38 @@ Uebung 4
     R3: tochter(X,Y) :- vater(Y,X), weiblich(X).
 
     i) ?- sohn(lot,Z), weiblich(Z).
-        mgu = [X/lot, Z/Y]  // evt. hier schon false, da sohn != weiblich
+        mgu = [X/lot, Y/Z]
        R1) ?- vater(Z, lot), maennlich(lot), weiblich(Z).
        R2) ?- mutter(Z, lot), maennlich(lot), weiblich(Z).
 
     ii) ?- vater(Z,lot), weiblich(Z).
-       mgu = [Z/haran] // false haran nicht als weiblich definiert!
+       mgu = [Z/haran]
+        ?- weiblich(Z).
+        ?- weiblich(haran).
+       out = [Z/haran]
+       naechster Schritt: ?- weiblich(haran). => Schritt 2 nicht mehr durchfuehrbar, weil weiblich haran nicht unifizierbar -> Fail
 
     iii) ?- mutter(Z,isaak), weiblich(Z).
-       mgu = [Z/sarah] // true
-       ?- .    out = [true]
+       mgu = [Z/sarah]
+       ?-                , weiblich(Z).
+       ?-                , weiblich(sarah).
+       out = [Z/sarah]
+       naechster SLD-Resolutionsschritt:
+          1. ?- weiblich(sarah),  out = [Z/sarah]
+          2. weiblich(sarah)
+             sub = []
+          3. ?- .
+          4. ?- .
+          5. out = [Z/sarah]
 
   b)
-    ?- mult(s(o),s(s(o)),Z).
-     mgu = [X/o, Y/s(s(o)), R/Z, R1/Z1]
-     ?- mult(o, s(s(o)), Z1), add(Z1, s(s(o), Z).
-     mgu = [Z1/o, Z/s(s(o))]
-     ?- .    out = [Z/s(s(o))]
+     ?- mult(s(o),s(s(o)),Z).                         out = []
+     (R2) mgu = [X/o, Y/s(s(o)), R/Z, R1/Z1]
+     ?- mult(o, s(s(o)), Z1), add(Z1, s(s(o), Z).     out = []
+     (R1) mgu = [Z1/o, X/s(s(o))]
+     ?- add(o, s(s(o)), Z).                           out = []
+     (R3) mgu = [X/s(s(o)), Z/s(s(o))]
+     ?- .                                             out = [Z/s(s(o))]
 
 
 20)
@@ -39,12 +54,12 @@ Uebung 4
 
 22)
   a)
-    f(f(X       ,f(a,g(X))),g(f(b ,Y     )))
+    f(f(X       ,f(a,g(X))),g(f(b ,Y      )))
     f(f(g(g(Z1)),Z2       ),g(f(Z3,f(Z3,a))))
     sub = [X/g(g(Z1)), Z2/f(a, g(g(g(Z1)))), Z3/b, Y/f(b, a)]
 
   b)
-    f(f(X       ,f(a,g(X))),g(f(b ,X     )))
+    f(f(X       ,f(a,g(X))),g(f(b ,X      )))
     f(f(g(g(Z1)),Z2       ),g(f(Z3,f(Z3,a))))
     sub = [X/g(g(Z1)), Z2/f(a, g(g(g(Z1)))), Z3/b, !!!]
 
@@ -57,4 +72,5 @@ Uebung 4
     app(nil,Xs,Xs).
     app(list(X,X1s),Ys,list(X,X2s)) :- app(X1s,Ys,X2s).
 
-    ?- 
+    ?- app(Z, Z1, Z2).
+    mgu = [Z/list(X, X1s), Z1/Ys, Z2/]

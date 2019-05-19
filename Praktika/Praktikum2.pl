@@ -30,3 +30,8 @@ add(X, s(Y), s(R)) :- add(X, Y, R), nat(X), nat(Y), nat(R).
 knotenanz(e, o).
 knotenanz(n(X, e, e), s(o)).
 knotenanz(Xb, N) :- construct(X, Lb, Rb, Xb), knotenanz(Lb, L), knotenanz(Rb, R), add(L, R, N1), add(N1, s(o), N), nat(N), baum(Xb).
+
+
+%Zusatzaufgabe Ys ist umgekehrtes Xs
+rev(nil, nil).
+rev(Xs, Ys) :- app(Xs, Rs, Ys), rev(Xs, Rs), linList(Xs), linList(Ys).

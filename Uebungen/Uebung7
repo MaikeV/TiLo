@@ -1,0 +1,32 @@
+linList(nil).
+linList(list(X, Xs)) :- linList(Xs).
+
+member1(X,list(X,Ys)).
+member1(X,list(Y,Ys)):- member1(X,Ys).
+
+app(nil,Xs,Xs).
+app(list(X,X1s),Ys,list(X,X2s)) :- app(X1s,Ys,X2s).
+
+prefix(X, Y) :- app(X, Q, Y).
+
+infix(Xs, Ys) :- prefix(Xs, Ys).
+infix(Xs, list(X, Ys)) :- infix(Xs, Ys).
+
+%Aufgabe 31 a
+rmlast(list(X,nil),nil).
+rmlast(list(X,Xs),list(X, Ys)):- rmlast(Xs,Ys).
+
+%Aufgabe 45 e
+a_uhr([tick]).
+a_uhr([tick|Xs]) :- b_uhr(Xs).
+b_uhr([tack]).
+b_uhr([tack|Xs]) :- a_uhr(Xs).
+
+l_uhr(W) :- append(A,B,W),a_uhr(A),b_uhr(B).
+
+%Aufgabe 49 a
+rS(W) :- l_uhr(W).
+
+%Aufgabe 49 b
+s_uhr([tick|Xs]) :- a_uhr(Xs).
+%rS(Ws) :- sUhr(Ws).

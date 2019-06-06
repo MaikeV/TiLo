@@ -17,13 +17,6 @@ rmlast([X],[]).
 rmlast([X|Xs],[X|Ys]):- rmlast(Xs,Ys).
 
 %Aufgabe 45 e
-%a_uhr([tick]).
-%a_uhr([tick|Xs]) :- b_uhr(Xs).
-%b_uhr([tack]).
-%b_uhr([tack|Xs]) :- a_uhr(Xs).
-
-%l_uhr(W) :- append(A,B,W),a_uhr(A),b_uhr(B).
-
 rS([tick|Is]) :- rI(Is).
 rI([tack]).
 rI([tack|As]) :- rA(As).
@@ -35,12 +28,11 @@ rS1(W) :- rS(W).
 
 %Aufgabe 49 b
 s_uhr([tick|Xs]) :- a_uhr(Xs).
-%rS(Ws) :- sUhr(Ws).
 
 
 %Uebung 8
-%Aufgabe 62
 
+%Aufgabe 62
 gagbS([]).
 gagbS([As|Bs]) :- append([a], As, A1s), append([b], Bs, B1s), gagbA(A1s), gagbB(B1s).
 
@@ -49,3 +41,15 @@ gagbA([As|a]) :- gagbA(As).
 
 gagbB([b]).
 gagbB([b|Bs]) :- gagbB(Bs).
+
+
+%Uebung 9
+
+%Aufgabe 16
+baum(e).
+baum(n(_, Lb, Rb)) :- baum(Lb), baum(Rb).
+
+construct(X, Lb, Rb, n(X, Lb, Rb)) :- baum(Lb), baum(Rb).
+
+mirror(n(X, e, e), n(X, e, e)).
+mirror(n(X, Lb, Rb), Kb) :- mirror(Lb, Xb), mirror(Rb, Yb), construct(X, Xb, Yb, Kb).

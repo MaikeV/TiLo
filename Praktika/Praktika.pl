@@ -71,8 +71,8 @@ infix1(Xs, Ys) :- praefix(Xs, Ws), postfixA(Ws, Ys).
 %Praktikum 4
 %Aufgabe 1
 % (0|1)* 010
-input(0).
-input(1).
+sigma(0).
+sigma(1).
 
 delta(s0,0,s1).
 delta(s0,0,s0).
@@ -102,7 +102,7 @@ deltaStar(S, [W|Ws], SNew) :-
     deltaStar(STrans, Ws, SNew).
 
 sigmaStar([]).
-sigmaStar(Ws) :- 
+sigmaStar(Ws) :-
     sigmaStar(Hs),
-    input(H),
+    sigma(H),
     append([H], Hs, Ws).

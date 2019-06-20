@@ -37,12 +37,23 @@ basement(s).
 
 %Aufgabe 2
 
-LvonM(Ws) :- sigmaStar(Ws), startState(S), es(S, Ws, )
+lvonM(Ws) :-
+  startState(S),
+  basement(B),
+  esPlus(S, Ws, [B], Snew, Bnew),
+  sigmaStar(Ws).
 
-es(X, [W], , ) :- state(X), delta(X, nix, s, Y, []).
-es(X, [W|Ws], [G|Gs], Xnew, B) :- delta(X, W), es(XTrans, Ws, Gs, Xnew, )
+es(S, W, [B|Bs], Snew, Bnew) :-
+  delta(S, W, B, Snew, Btrans),
+  append(Btrans, Bs, Bnew).
 
-esPlus() :-
+esPlus(S, [], [], S, []).
+esPlus(S, Ws, Bs, Snew, Bnew) :-
+  es(S, nix, Bs, Snew, Bnew),
+  esPlus(Snew, Ws, Bnew, SnewNew, BnewNew).
+esPlus(S, [W|Ws], Bs, Snew, Bnew) :-
+  es(S, W, Bs, Snew, Bnew),
+  esPlus(Snew, Ws, Bnew, SnewNew, BnewNew).
 
 sigmaStar([]).
 sigmaStar(Ws) :-

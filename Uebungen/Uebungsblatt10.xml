@@ -1,0 +1,146 @@
+--Aufgabe 75
+<!DOCTYPE FHVeranstaltungsverzeichnis [
+  <!Element Veranstaltungen (Veranstaltung*)>
+  <!Element Veranstaltung (Name, Art, Termine, Beginn, Raeume)>
+  <!Element Name (#DATA)>
+  <!Element Art (Vorlesung, Uebung, Praktikum)>
+  <!Element Vorlesung (#DATA)>
+  <!Element Uebung (#DATA)>
+  <!Element Praktikum (#DATA)>
+  <!Element Termine (Vorlesung*, Uebung*, Praktikum*)>
+  <!Element Beginn (Vorlesung*, Uebung*, Praktikum*)>
+  <!Element Raeume (Vorlesung*, Uebung*, Praktikum*)>
+]>
+
+--Aufgabe 76
+<FHVeranstaltungsverzeichnis>
+  <Veranstaltungen>
+    <Veranstaltung>
+      <Name>
+        Theoretische Informatik und Logik
+      </Name>
+      <Art>
+        <Vorlesung>
+          4
+        </Vorlesung>
+        <Uebung>
+          2
+        </Uebung>
+        <Praktikum>
+          1
+        </Praktikum>
+      </Art>
+      <Termine>
+        <Vorlesung>
+          Mo 08:15-09:45
+        </Vorlesung>
+        <Vorlesung>
+          Do 12:15-13:45
+        </Vorlesung>
+        <Uebung>
+          Mo 10:15-11:45
+        </Uebung>
+        <Praktikum>
+          Fr 08:15-09:45
+          (14 taegl.)
+        </Praktikum>
+      </Termine>
+      <Beginn>
+        <Vorlesung>
+          29.04.19
+        </Vorlesung>
+        <Vorlesung>
+          04.04.19
+        </Vorlesung>
+        <Uebung>
+          01.04.19
+        </Uebung>
+        <Praktikum>
+          26.04.19
+        </Praktikum>
+      </Beginn>
+      <Raeume>
+        <Vorlesung>
+          Eup D006
+        </Vorlesung>
+        <Vorlesung>
+          Eup D006
+        </Vorlesung>
+        <Uebung>
+          Eup D006
+        </Uebung>
+        <Praktikum>
+          Eup E145
+        </Praktikum>
+        <Praktikum>
+          Eup E146
+        </Praktikum>
+      </Raeume>
+    </Veranstaltung>
+    <Veranstaltung>
+      <Name>
+        Hoehere Mathematik 2 fuer INF
+      </Name>
+      <Art>
+        <Vorlesung>
+          2
+        </Vorlesung>
+        <Uebung>
+          2
+        </Uebung>
+        <Praktikum>
+          1
+        </Praktikum>
+      </Art>
+      <Termine>
+        <Vorlesung>
+          Do 10:15-11:45
+        </Vorlesung>
+        <Uebung>
+          Do 08:15-09:45
+        </Uebung>
+        <Praktikum>
+          Mi 08:15-09:45
+          (14 taegl.)
+        </Praktikum>
+      </Termine>
+      <Beginn>
+        <Vorlesung>
+          04.04.19
+        </Vorlesung>
+        <Uebung>
+          11.04.19
+        </Uebung>
+        <Uebung>
+          04.04.19
+        </Uebung>
+        <Praktikum>
+          08.05.19
+        </Praktikum>
+      </Beginn>
+      <Raeume>
+        <Vorlesung>
+          Eup D006
+        </Vorlesung>
+        <Uebung>
+          Eup D006
+        </Uebung>
+        <Uebung>
+          Eup D001
+        </Uebung>
+        <Praktikum>
+          Eup E143
+        </Praktikum>
+        <Praktikum>
+          Eup E112
+        </Praktikum>
+        <Praktikum>
+          Eup E141
+        </Praktikum>
+        <Praktikum>
+          Eup E113
+        </Praktikum>
+      </Raeume>
+    </Veranstaltung>
+  </Veranstaltungen>
+</FHVeranstaltungsverzeichnis>

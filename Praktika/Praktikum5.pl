@@ -52,6 +52,7 @@ esPlus(S, Ws, Bs, Snew, Bnew) :-
   es(S, nix, Bs, Snew, Bnew),
   esPlus(Snew, Ws, Bnew, SnewNew, BnewNew).
 esPlus(S, [W|Ws], Bs, Snew, Bnew) :-
+  W \== nix,
   es(S, W, Bs, Snew, Bnew),
   esPlus(Snew, Ws, Bnew, SnewNew, BnewNew).
 

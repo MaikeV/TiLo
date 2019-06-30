@@ -40,8 +40,8 @@ basement(s).
 lvonM(Ws) :-
   startState(S),
   basement(B),
-  esPlus(S, Ws, [B], Snew, Bnew),
-  sigmaStar(Ws).
+  sigmaStar(Ws),
+  esPlus(S, Ws, [B], Snew, Bnew).
 
 es(S, W, [B|Bs], Snew, Bnew) :-
   delta(S, W, B, Snew, Btrans),
